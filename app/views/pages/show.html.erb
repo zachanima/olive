@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<p>
-  <b>Title:</b>
-  <%= @page.title %>
-</p>
+<h1><%= @page.title %></h1>
 
-<p>
-  <b>Text:</b>
+<pre>
   <%= @page.text %>
-</p>
+</pre>
 
 
 <%= link_to 'Edit', edit_page_path(@page) %> |

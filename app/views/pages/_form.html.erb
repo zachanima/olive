@@ -1,25 +1,16 @@
 <%= form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+  <ol class="fields">
+    <li>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    <li>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </li>
+  </ol>
+  <ol>
 
-      <ul>
-      <% @page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ol class="actions">
+    <li><%= f.submit %></li>
+  </ol>
 <% end %>
