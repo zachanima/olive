@@ -53,7 +53,7 @@ class PagesControllerTest < ActionController::TestCase
     @page.title = nil
 
     put :update, id: @page.to_param, page: @page.attributes
-    flunk 'should not update page', 'Flunked'
+    flunk 'should not update page (flunked)'
 
     assert_template :edit
   end
