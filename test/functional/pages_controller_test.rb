@@ -9,11 +9,20 @@ class PagesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:pages)
+
+    # View.
+    assert_select 'td', @page.title
+    assert_select 'td', @page.text
   end
 
   test "should get new" do
     get :new
     assert_response :success
+
+    # View.
+    assert_select "form[action=?]", "/pages" do
+      assert_fields %w[title text]
+    end
   end
 
   test "should create page" do
@@ -34,14 +43,24 @@ class PagesControllerTest < ActionController::TestCase
   test "should show page" do
     get :show, id: @page.to_param
     assert_response :success
+
+    # View.
+    assert_select 'h1', @page.title
+    assert_select 'div', @page.text
   end
 
   test "should get edit" do
     get :edit, id: @page.to_param
     assert_response :success
+
+    # View.
+    assert_select "form[action=?]", "/pages/#{@page.to_param}" do
+      assert_fields %w[title text]
+    end
   end
 
   test "should update page" do
+    @page.title = 'foo'
     put :update, id: @page.to_param, page: @page.attributes
     assert_redirected_to page_path(assigns(:page))
   end
@@ -49,7 +68,6 @@ class PagesControllerTest < ActionController::TestCase
   test "should not update page and instead render edit" do
     @page.title = nil
     put :update, id: @page.to_param, page: @page.attributes
-    flunk 'should not update page (flunked)'
     assert_template :edit
   end
 

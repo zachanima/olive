@@ -11,4 +11,9 @@ class PageTest < ActiveSupport::TestCase
     page.title = ''
     assert !page.save
   end
+
+  test "should save page" do
+    page = pages(:one)
+    assert page.save
+  end
 end
