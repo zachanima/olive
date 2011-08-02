@@ -33,6 +33,4 @@ group :test do
 
   # Test coverage report
   gem 'simplecov', :require => false
-
-  gem 'guard-test', :require => false
 end
