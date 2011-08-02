@@ -20,17 +20,14 @@ class PagesControllerTest < ActionController::TestCase
     assert_difference('Page.count') do
       post :create, page: @page.attributes
     end
-
     assert_redirected_to page_path(assigns(:page))
   end
 
   test "should not create page and instead render new" do
     @page.title = nil
-
     assert_no_difference('Page.count') do
       post :create, page: @page.attributes
     end
-
     assert_template :new
   end
 
@@ -51,10 +48,8 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should not update page and instead render edit" do
     @page.title = nil
-
     put :update, id: @page.to_param, page: @page.attributes
     flunk 'should not update page (flunked)'
-
     assert_template :edit
   end
 
@@ -62,7 +57,6 @@ class PagesControllerTest < ActionController::TestCase
     assert_difference('Page.count', -1) do
       delete :destroy, id: @page.to_param
     end
-
     assert_redirected_to pages_path
   end
 end
