@@ -8,3 +8,6 @@ public/images/*
 public/cache/**/*
 public/system/*
 *.swp
+.metrics
+coverage/*
+tmp/*

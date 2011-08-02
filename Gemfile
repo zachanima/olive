@@ -30,4 +30,9 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+
+  # Test coverage report
+  gem 'simplecov', :require => false
+
+  gem 'guard-test', :require => false
 end
