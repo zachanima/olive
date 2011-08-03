@@ -16,4 +16,8 @@ class PageTest < ActiveSupport::TestCase
     page = pages(:one)
     assert page.save
   end
+
+  test "should order by position" do
+    assert_equal Page.scoped, Page.order(:position)
+  end
 end

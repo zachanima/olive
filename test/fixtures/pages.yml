@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
-
 one:
   title: MyString
   text: MyText
+  position: 2
 
 two:
   title: MyString
   text: MyText
+  position: 1
