@@ -24,6 +24,12 @@ class PageTest < ActiveSupport::TestCase
     assert_equal page.position, 1
   end
 
+  test "should increment position by 1" do
+    page = Page.new(title: 'foo')
+    assert page.save
+    assert_equal page.position, Page.all[-2].position + 1
+  end
+
   test "should order by position" do
     assert_equal Page.scoped, Page.order(:position)
   end
