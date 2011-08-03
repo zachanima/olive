@@ -41,4 +41,9 @@ class PagesController < ApplicationController
 
     redirect_to pages_url
   end
+
+  # TODO: Handle empty pages table.
+  def home
+    redirect_to Page.first
+  end
 end

@@ -77,4 +77,9 @@ class PagesControllerTest < ActionController::TestCase
     end
     assert_redirected_to pages_path
   end
+
+  test "should redirect to home page" do
+    get :home
+    assert_redirected_to Page.first
+  end
 end

@@ -1,4 +1,4 @@
 Olive::Application.routes.draw do
   resources :pages
-  root :to => 'pages#index'
+  root :to => 'pages#home'
 end
