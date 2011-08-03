@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  http_basic_authenticate_with name: 'foo', password: 'bar',
+    except: [:index, :show, :home]
+
   def index
     @pages = Page.all
   end

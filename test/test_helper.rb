@@ -14,4 +14,8 @@ class ActiveSupport::TestCase
     end
     assert_select "input[type=submit]"
   end
+
+  def authenticate
+    @request.env['HTTP_AUTHORIZATION'] = 'Basic ' + Base64::encode64('foo:bar')
+  end
 end

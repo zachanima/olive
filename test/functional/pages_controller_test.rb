@@ -16,6 +16,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    authenticate
     get :new
     assert_response :success
 
@@ -26,6 +27,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should create page" do
+    authenticate
     assert_difference('Page.count') do
       post :create, page: @page.attributes
     end
@@ -33,6 +35,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should not create page and instead render new" do
+    authenticate
     @page.title = nil
     assert_no_difference('Page.count') do
       post :create, page: @page.attributes
@@ -50,6 +53,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    authenticate
     get :edit, id: @page.to_param
     assert_response :success
 
@@ -60,18 +64,21 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should update page" do
+    authenticate
     @page.title = 'foo'
     put :update, id: @page.to_param, page: @page.attributes
     assert_redirected_to page_path(assigns(:page))
   end
 
   test "should not update page and instead render edit" do
+    authenticate
     @page.title = nil
     put :update, id: @page.to_param, page: @page.attributes
     assert_template :edit
   end
 
   test "should destroy page" do
+    authenticate
     assert_difference('Page.count', -1) do
       delete :destroy, id: @page.to_param
     end
