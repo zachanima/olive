@@ -17,6 +17,13 @@ class PageTest < ActiveSupport::TestCase
     assert page.save
   end
 
+  test "should set first position to 1" do
+    Page.destroy_all
+    page = Page.new(title: 'foo')
+    assert page.save
+    assert_equal page.position, 1
+  end
+
   test "should order by position" do
     assert_equal Page.scoped, Page.order(:position)
   end

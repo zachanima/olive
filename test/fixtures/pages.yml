@@ -1,3 +1,5 @@
+# TODO: Remove position specification - ideally use factories instead.
+
 one:
   title: MyString
   text: MyText
