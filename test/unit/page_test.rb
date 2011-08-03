@@ -17,7 +17,7 @@ class PageTest < ActiveSupport::TestCase
     assert page.save
   end
 
-  test "should set first position to 1" do
+  test "should set position to 1" do
     Page.destroy_all
     page = Page.new(title: 'foo')
     assert page.save
