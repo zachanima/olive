@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     if @page.save
       redirect_to @page, notice: 'Page was successfully created.'
     else
-      render action: "new"
+      render action: :new
     end
   end
 
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(params[:page])
       redirect_to @page, notice: 'Page was successfully updated.'
     else
-      render action: "edit"
+      render action: :edit
     end
   end
 
@@ -45,8 +45,11 @@ class PagesController < ApplicationController
     redirect_to pages_url
   end
 
-  # TODO: Handle empty pages table.
   def home
-    redirect_to Page.first
+    if Page.count == 0
+      render text: 'Not Found', status: :not_found
+    else
+      redirect_to Page.first
+    end
   end
 end
