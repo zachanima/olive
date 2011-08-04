@@ -7,8 +7,7 @@ class PageTest < ActiveSupport::TestCase
   end
 
   test "should not save with empty title" do
-    page = Page.new
-    page.title = ''
+    page = Page.new(title: '')
     assert !page.save
   end
 
