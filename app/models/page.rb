@@ -1,6 +1,8 @@
 class Page < ActiveRecord::Base
   attr_accessible :title, :text
 
+  has_many :sections
+
   validates_presence_of :title
   validates :position, presence: true, uniqueness: true, numericality: { greater_than: 0 }
 

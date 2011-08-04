@@ -1,0 +1,9 @@
+one:
+  title: MyString
+  text: MyText
+  page_id: 1
+
+two:
+  title: MyString
+  text: MyText
+  page_id: 2
