@@ -48,9 +48,9 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should not create and instead render new" do
     authenticate
-    @page.title = nil
+    page = Page.new
     assert_no_difference('Page.count') do
-      post :create, page: @page.attributes
+      post :create, page: page.attributes
     end
     assert_template :new
   end
@@ -82,13 +82,11 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should update" do
     authenticate
-    @page.title = 'foo'
     put :update, id: @page.to_param, page: @page.attributes
     assert_redirected_to page_path(assigns(:page))
   end
 
   test "should not update when unauthorized" do
-    @page.title = 'foo'
     put :update, id: @page.to_param, page: @page.attributes
     assert_response :unauthorized
   end
