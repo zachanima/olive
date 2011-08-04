@@ -6,10 +6,10 @@ class Page < ActiveRecord::Base
 
   default_scope order: :position
 
-  before_validation :set_position
+  before_validation :set_initial_position
 
   private
-  def set_position
+  def set_initial_position
     if self.new_record?
       if Page.count == 0
         self.position = 1
