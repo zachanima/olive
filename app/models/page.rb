@@ -10,10 +10,12 @@ class Page < ActiveRecord::Base
 
   private
   def set_position
-    if Page.count == 0
-      self.position = 1
-    else
-      self.position = Page.last.position + 1
+    if self.new_record?
+      if Page.count == 0
+        self.position = 1
+      else
+        self.position = Page.last.position + 1
+      end
     end
   end
 end

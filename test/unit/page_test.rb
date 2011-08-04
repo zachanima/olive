@@ -30,6 +30,13 @@ class PageTest < ActiveSupport::TestCase
     assert_equal page.position, Page.all[-2].position + 1
   end
 
+  test "should not set position" do
+    page = Page.first
+    assert_no_difference('Page.first.position') do
+      page.update_attributes(title: 'foo')
+    end
+  end
+
   test "should order by position" do
     assert_equal Page.scoped, Page.order(:position)
   end
