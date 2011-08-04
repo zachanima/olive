@@ -1,18 +1,18 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
-  test "should not save page without title" do
+  test "should not save without title" do
     page = Page.new
     assert !page.save
   end
 
-  test "should not save page with empty title" do
+  test "should not save with empty title" do
     page = Page.new
     page.title = ''
     assert !page.save
   end
 
-  test "should save page" do
+  test "should save" do
     page = pages(:one)
     assert page.save
   end
