@@ -2,28 +2,29 @@ require 'test_helper'
 
 class SectionTest < ActiveSupport::TestCase
   test "should not save without page" do
-    section = Section.new(text: 'foo')
+    section = Factory.build(:section, page_id: nil)
     assert !section.save
   end
 
   test "should not save without text" do
-    section = Page.first.sections.build
+    section = Factory.build(:section, text: nil)
     assert !section.save
   end
 
   test "should not save with empty text" do
-    section = Page.first.sections.build(text: '')
+    section = Factory.build(:section, text: '')
     assert !section.save
   end
 
   test "should not save with non-existent page" do
-    section = Page.first.sections.build
-    Page.first.destroy
+    page = Factory(:page)
+    section = Factory.build(:section, page_id: page.id)
+    page.destroy
     assert !section.save
   end
 
   test "should save with page and text" do
-    section = Page.first.sections.build(text: 'foo')
+    section = Factory.build(:section)
     assert section.save
   end
 end

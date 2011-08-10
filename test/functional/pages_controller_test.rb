@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
   setup do
-    @page = pages(:one)
+    @page = Factory(:page)
   end
 
   test "should get index" do
@@ -48,9 +48,9 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should not create and instead render new" do
     authenticate
-    page = Page.new
+    @page.title = nil
     assert_no_difference('Page.count') do
-      post :create, page: page.attributes
+      post :create, page: @page.attributes
     end
     assert_template :new
   end

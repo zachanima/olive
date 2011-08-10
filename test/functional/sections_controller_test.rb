@@ -2,8 +2,8 @@ require 'test_helper'
 
 class SectionsControllerTest < ActionController::TestCase
   setup do
-    @page = pages(:one)
-    @section = @page.sections.create!(text: 'foo')
+    @section = Factory(:section)
+    @page = @section.page
   end
 
   test "should get new" do
@@ -24,7 +24,7 @@ class SectionsControllerTest < ActionController::TestCase
 
   test "should create" do
     authenticate
-    section = @page.sections.build(text: 'foo')
+    section = Factory.build(:section, page_id: @page.to_param)
     assert_difference('@page.sections.count', 1) do
       post :create, section: section.attributes, page_id: @page.to_param
     end
@@ -32,7 +32,7 @@ class SectionsControllerTest < ActionController::TestCase
   end
 
   test "should not create when unauthorized" do
-    section = @page.sections.build(text: 'foo')
+    section = Factory.build(:section, page_id: @page.to_param)
     assert_no_difference('@page.sections.count') do
       post :create, section: section.attributes, page_id: @page.to_param
     end
@@ -41,7 +41,7 @@ class SectionsControllerTest < ActionController::TestCase
 
   test "should not create and instead render new" do
     authenticate
-    section = @page.sections.build
+    section = Factory.build(:section, page_id: @page.to_param, text: nil)
     assert_no_difference('@page.sections.count') do
       post :create, section: section.attributes, page_id: @page.to_param
     end
@@ -50,7 +50,7 @@ class SectionsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     authenticate
-    get :edit, id: @section.to_param, page_id: @page.to_param
+    get :edit, id: @section.to_param, page_id: @section.page.to_param
     assert_response :success
 
     # View.
@@ -60,39 +60,41 @@ class SectionsControllerTest < ActionController::TestCase
   end
 
   test "should not get edit when unauthorized" do
-    get :edit, id: @section.to_param, page_id: @page.to_param
+    get :edit, id: @section.to_param, page_id: @section.page.to_param
     assert_response :unauthorized
   end
 
   test "should update" do
     authenticate
-    put :update, id: @section.to_param, section: @section.attributes, page_id: @page.to_param
+    put :update, id: @section.to_param, section: @section.attributes, page_id: @section.page.to_param
     assert_redirected_to @page
   end
 
   test "should not update when unauthorized" do
-    put :update, id: @section.to_param, section: @section.attributes, page_id: @page.to_param
+    put :update, id: @section.to_param, section: @section.attributes, page_id: @section.page.to_param
     assert_response :unauthorized
   end
 
   test "should not update and instead render edit" do
     authenticate
     @section.text = nil
-    put :update, id: @section.to_param, section: @section.attributes, page_id: @page.to_param
+    put :update, id: @section.to_param, section: @section.attributes, page_id: @section.page.to_param
     assert_template :edit
   end
 
   test "should destroy" do
     authenticate
+    section = Factory(:section, page_id: @page.to_param)
     assert_difference('@page.sections.count', -1) do
-      delete :destroy, id: @section.to_param, page_id: @page.to_param
+      delete :destroy, id: section.to_param, page_id: @page.to_param
     end
     assert_redirected_to @page
   end
 
   test "should not destroy when unauthorized" do
+    section = Factory(:section, page_id: @page.to_param)
     assert_no_difference('@page.sections.count') do
-      delete :destroy, id: @section.to_param, page_id: @page.to_param
+      delete :destroy, id: section.to_param, page_id: @page.to_param
     end
     assert_response :unauthorized
   end

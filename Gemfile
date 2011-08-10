@@ -28,8 +28,11 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem 'factory_girl_rails'
+
   # Pretty printed test output
   gem 'turn', :require => false
+
 
   # Test coverage report
   gem 'simplecov', :require => false
