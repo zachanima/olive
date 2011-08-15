@@ -1,4 +1,8 @@
 jQuery ->
+  /* Hide notice */
+  $('#notice').fadeIn()
+  $('#notice').click -> $(this).fadeOut()
+
   /* Find current page id. */
   page_id = $('[data-page]').attr('data-page')
 
