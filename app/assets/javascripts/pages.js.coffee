@@ -1,13 +1,24 @@
 jQuery ->
+  /* Find current page id. */
+  page = $('[data-page]')
+  page_id = page.attr('data-page')
+
+
   /* Hide notice */
   $('#notice').fadeIn()
   $('#notice').click -> $(this).fadeOut()
 
-  /* Find current page id. */
-  page_id = $('[data-page]').attr('data-page')
-
   /* Apply loading animation on edit link click. */
   $('a.edit').click -> $(this).html('Loading ...')
+
+
+  /* Edit page. */
+  $('div[data-page] a.edit').click ->
+    $.ajax
+      url: '/pages/' + page_id + '/edit'
+      success: (data) -> page.html(data)
+    false
+
 
   /* New section. */
   $('div#new_section a.edit').click ->
@@ -15,6 +26,7 @@ jQuery ->
       url: '/pages/' + page_id + '/sections/new',
       success: (data) -> $('#new_section').html(data)
     false
+
 
   /* Edit section. */
   $('div[data-section] a.edit').click ->

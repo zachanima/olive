@@ -16,6 +16,7 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
+    render partial: 'form', layout: nil
   end
 
   def create
