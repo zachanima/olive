@@ -22,6 +22,7 @@
         <% @pages.each do |page| %>
           <li><%= link_to page.title, page %></li>
         <% end %>
+        <li><%= link_to 'New page', new_page_path %></li>
       </ol>
     </div>
 
