@@ -4,12 +4,12 @@ class SectionsController < ApplicationController
 
   def new
     @section = @page.sections.build
-    render partial: 'form', layout: nil
+    render layout: nil
   end
 
   def edit
     @section = @page.sections.find(params[:id])
-    render partial: 'form', layout: nil
+    render layout: nil
   end
 
   def create

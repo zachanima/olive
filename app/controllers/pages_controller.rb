@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  before_filter :find_pages
   http_basic_authenticate_with name: 'foo', password: 'bar',
     except: [:index, :show, :home]
 
@@ -15,7 +14,7 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
-    render partial: 'form', layout: nil
+    render layout: nil
   end
 
   def create
@@ -53,8 +52,4 @@ class PagesController < ApplicationController
     end
   end
 
-  private
-  def find_pages
-    @pages = Page.all
-  end
 end
