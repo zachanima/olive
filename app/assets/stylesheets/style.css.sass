@@ -1,8 +1,13 @@
+$color: #005e9f
 $light: rgba(255, 255, 255, 0.25)
 $dark: rgba(0, 0, 0, 0.25)
+$shadow: 1px 1px 2px $dark
+$font: 11pt arial, sans-serif
+
 $width: 720px
-$nav-width: 160px
 $header-height: 75px
+$nav-width: 160px
+
 
 
 *
@@ -10,8 +15,8 @@ $header-height: 75px
 
 
 body
-  color: #005e9f
-  font: 11pt arial, sans-serif
+  color: $color
+  font: $font
   line-height: 1.5em
 
   background-color: #78a9ff
@@ -28,112 +33,133 @@ h1
   color: #f5d900
   font-size: 24pt
   text-align: right
-  margin: 0 0 8px 0
+  text-shadow: $shadow
+
+  margin: 0 0 16px 0
 
 
 h2
   color: #fff
   font-size: 18pt
+  text-shadow: $shadow
+
   margin: 0 0 8px 0
 
 
 div#header
-  background-color: #00717b
   color: #fff
-  font-size: 48pt
-  height: $header-height
-  width: 100%
+  font:
+    size: 48pt
+    weight: bold
+  letter-spacing: -0.025em
+  text-shadow: $shadow
+
+  background-color: #00717b
+
   position: absolute
   top: 0
   left: 0
+  width: 100%
+  height: $header-height
+
   div
-    margin: auto
+    margin: 36px auto
     width: $width
-    padding: 8px 0 0 0
-  strong
-    display: block
-    margin-top: 24px
-    letter-spacing: -0.025em
-    text-shadow: 1px 1px 2px $dark
-  span
-    font:
-      size: 20pt
-      weight: bold
-    letter-spacing: 1pt
-    margin-top: 42px
-    float: right
+
+    span
+      font:
+        size: 20pt
+        weight: bold
+      letter-spacing: 1pt
+
+      float: right
+      margin-top: 14px /* Should be vertical-align. */
 
 
 div#nav
   float: left
   width: $nav-width
+
   ol
     list-style: none
-    margin-left: 0
+
     padding-left: 0
+
     li
       margin-bottom: 16px
+
       a
-        border-bottom: 2px solid $light
-        color: #005e9f
+        color: $color
         font-weight: bold
         line-height: 1.2em
-        display: block
         text-decoration: none
-        &:after
-          visibility: hidden
-          content: '\25b8'
-          margin-left: 0.5em
+
+        border-bottom: 2px solid $light
+
+        display: block
+
         &:hover:after
-          visibility: visible
+          content: '\25b8'
+
+          margin-left: 0.5em
 
 
 div#content
   margin-left: $nav-width
+
   div
-    position: relative
     padding: 16px
+    position: relative
+    min-height: 4px
+
     &:hover
       background-color: $light
+
     a.edit
+      color: $color
+      font-weight: bold
+      text-align: center
+      text-decoration: none
+
+      padding-top: 8px
       position: absolute
       top: 0
       left: 0
       width: 100%
       height: 100%
-      padding-top: 6px
-      color: inherit
-      font-weight: bold
-      text-align: center
-      text-decoration: none
+
   form
     ol
       list-style: none
+
       margin: 0
       padding: 0
       width: 100%
+
       li
         label
           display: none
+
         input[name$='[title]']
-          color: #333
-          border: 1px solid #999
-          margin: -2px
-          padding: 0 2px
           font:
             size: 18pt
             weight: bold
-          width: 100%
-        input[type=submit]
-          margin: 4px -2px -2px -2px
-        textarea
-          color: #333
-          font: 11pt arial, sans-serif
-          line-height: 1.5em
+
           border: 1px solid #999
-          margin: 8px -2px -2px -2px
-          padding: 0 2px
-          height: 8em
+
+          padding: 0
           width: 100%
+
+        textarea
+          font: $font
+          line-height: 1.5em
+
+          border: 1px solid #999
+
+          margin-top: 4px
+          padding: 0
+          width: 100%
+          height: 8em
+
     ol.actions
       text-align: right
