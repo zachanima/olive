@@ -1,4 +1,4 @@
-<div>
+<div data-page="<%= @page.to_param %>">
   <%= link_to '', edit_page_path(@page), class: 'edit' %>
   <h1><%= @page.title %></h1>
   <%= @page.text %>
@@ -6,6 +6,6 @@
 
 <%= render @page.sections %>
 
-<div id="new_section" data-page="<%= @page.to_param %>">
+<div id="new_section">
   <%= link_to 'New section', new_page_section_path(@page), class: 'edit' %>
 </div>

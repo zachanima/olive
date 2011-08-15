@@ -1,4 +1,4 @@
-<div>
+<div data-section="<%= section.to_param %>">
   <%= link_to '', edit_page_section_path(@page, section), class: 'edit' %>
   <%= content_tag :h2, section.title if section.title %>
   <%= section.text %>
