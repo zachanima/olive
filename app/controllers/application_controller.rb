@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :find_pages
 
   private
+  def find_page
+    @page = Page.find(params[:page_id] || params[:id])
+  end
+
   def find_pages
     @pages = Page.all
   end

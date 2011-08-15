@@ -1,17 +1,14 @@
 class PagesController < ApplicationController
-  http_basic_authenticate_with name: 'foo', password: 'bar',
-    except: [:index, :show, :home]
+  before_filter :find_page, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: 'foo', password: 'bar', except: [:show, :home]
 
-  def show
-    @page = Page.find(params[:id])
-  end
+  # def show
 
   def new
     @page = Page.new
   end
 
   def edit
-    @page = Page.find(params[:id])
     render layout: nil
   end
 
@@ -26,8 +23,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page = Page.find(params[:id])
-
     if @page.update_attributes(params[:page])
       redirect_to @page, notice: 'Page was successfully updated.'
     else
@@ -36,7 +31,6 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page = Page.find(params[:id])
     @page.destroy
 
     redirect_to pages_url
@@ -49,5 +43,4 @@ class PagesController < ApplicationController
       redirect_to Page.first
     end
   end
-
 end

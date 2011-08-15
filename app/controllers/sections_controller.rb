@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   http_basic_authenticate_with name: 'foo', password: 'bar'
   before_filter :find_page
+  before_filter :find_section, only: [:edit, :update, :destroy]
 
   def new
     @section = @page.sections.build
@@ -8,7 +9,6 @@ class SectionsController < ApplicationController
   end
 
   def edit
-    @section = @page.sections.find(params[:id])
     render layout: nil
   end
 
@@ -23,8 +23,6 @@ class SectionsController < ApplicationController
   end
 
   def update
-    @section = @page.sections.find(params[:id])
-
     if @section.update_attributes(params[:section])
       redirect_to @page, notice: 'Section was successfully updated.'
     else
@@ -33,14 +31,13 @@ class SectionsController < ApplicationController
   end
 
   def destroy
-    @section = @page.sections.find(params[:id])
     @section.destroy
 
     redirect_to @page
   end
 
   private
-  def find_page
-    @page = Page.find(params[:page_id])
+  def find_section
+    @section = @page.sections.find(params[:id])
   end
 end
