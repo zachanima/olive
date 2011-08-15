@@ -11,7 +11,7 @@ class Page < ActiveRecord::Base
   before_validation :set_initial_position
 
   def to_param
-    "#{self.id}-#{self.title.parameterize}"
+    "#{self.id}-#{self.title.parameterize if self.title}"
   end
 
   private
