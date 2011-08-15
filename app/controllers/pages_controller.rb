@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   http_basic_authenticate_with name: 'foo', password: 'bar',
     except: [:index, :show, :home]
 
-  # def index
-
   def show
     @page = Page.find(params[:id])
   end

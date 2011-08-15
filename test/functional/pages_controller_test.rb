@@ -5,16 +5,6 @@ class PagesControllerTest < ActionController::TestCase
     @page = Factory(:page)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:pages)
-
-    # View.
-    assert_select 'td', @page.title
-    assert_select 'td', @page.text
-  end
-
   test "should get new" do
     authenticate
     get :new
