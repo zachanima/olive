@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  $('#new_section a').click ->
+    $(this).html('Loading ...')
+    $.ajax
+      url: '/pages/' + $('#new_section').attr('data-page') + '/sections/new',
+      success: (data) -> $('#new_section').html(data)
+    false
