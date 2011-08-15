@@ -18,11 +18,11 @@
     <%= content_tag :div, notice, id: 'notice' if notice %>
 
     <div id="nav">
-      <ul>
+      <ol>
         <% @pages.each do |page| %>
           <li><%= link_to page.title, page %></li>
         <% end %>
-      </ul>
+      </ol>
     </div>
 
 
