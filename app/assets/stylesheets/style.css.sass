@@ -1,56 +1,53 @@
+$background: #78a9ff
+
+*
+  outline: none
+
 body
-  background-color: #fff
-  color: #333
-  font-family: verdana, arial, helvetica, sans-serif
-  font-size: 13px
-  line-height: 18px
+  background-color: $background
 
-p, ol, ul, td
-  font-family: verdana, arial, helvetica, sans-serif
-  font-size: 13px
-  line-height: 18px
+  color: #005e9f
+  font: 11pt arial, sans-serif
+  line-height: 1.5em
 
-pre
-  background-color: #eee
-  padding: 10px
-  font-size: 11px
+  margin: auto
+  width: 600px
 
-a
-  color: #000
-  &:visited
-    color: #666
-  &:hover
-    color: #fff
-    background-color: #000
+a img
+  border-width: 0
 
-div
-  &.field, &.actions
-    margin-bottom: 10px
 
-#notice
-  color: green
+h1
+  color: #f5d900
+  font: bold 24pt
+  text-align: right
+  margin: 0 0 8px 0
 
-.field_with_errors
-  padding: 2px
-  background-color: red
-  display: table
+h2
+  color: #fff
+  font: bold 18pt
+  margin: 0 0 8px 0
 
-#error_explanation
-  width: 450px
-  border: 2px solid red
-  padding: 7px
-  padding-bottom: 0
-  margin-bottom: 20px
-  background-color: #f0f0f0
-  h2
-    text-align: left
+div#content
+  div
+    position: relative
+    padding: 16px
+    &:hover
+      background-color: lighten($background, 10%)
+    a.edit
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+  a#new_section
+    color: inherit
     font-weight: bold
-    padding: 5px 5px 5px 15px
-    font-size: 12px
-    margin: -7px
-    margin-bottom: 0px
-    background-color: #c00
-    color: #fff
-  ul li
-    font-size: 12px
-    list-style: square
+    text-align: center
+    text-decoration: none
+    display: block
+    padding: 16px
+    width: 100%
+    &:hover
+      background-color: lighten($background, 10%)
+      text-decoration: underline
