@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Olive</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= content_tag :div, notice, id: 'notice' if notice %>
-
-<div id="content">
-  <%= yield %>
-</div>
-
-</body>
+  <head>
+    <title>Olive</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= content_tag :div, notice, id: 'notice' if notice %>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
 </html>
