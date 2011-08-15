@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
+  before_filter :find_pages
   http_basic_authenticate_with name: 'foo', password: 'bar',
     except: [:index, :show, :home]
 
-  def index
-    @pages = Page.all
-  end
+  # def index
 
   def show
     @page = Page.find(params[:id])
@@ -52,5 +51,10 @@ class PagesController < ApplicationController
     else
       redirect_to Page.first
     end
+  end
+
+  private
+  def find_pages
+    @pages = Page.all
   end
 end

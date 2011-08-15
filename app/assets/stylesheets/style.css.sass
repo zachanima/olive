@@ -1,17 +1,20 @@
 $background: #78a9ff
+$light: rgba(255, 255, 255, 0.25)
+$dark: rgba(0, 0, 0, 0.25)
+$width: 720px
+$nav-width: 160px
+$header-height: 75px
 
 *
   outline: none
 
 body
   background-color: $background
-
-body
   color: #005e9f
   font: 11pt arial, sans-serif
   line-height: 1.5em
-  margin: auto
-  width: 600px
+  margin: $header-height auto 0 auto
+  width: $width
 
 a img
   border-width: 0
@@ -27,6 +30,32 @@ h2
   font-size: 18pt
   margin: 0 0 8px 0
 
+div#header
+  background-color: #00717b
+  color: #fff
+  font-size: 48pt
+  height: $header-height
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  div
+    margin: auto
+    width: $width
+    padding: 8px 0 0 0
+  strong
+    display: block
+    margin-top: 24px
+    letter-spacing: -0.025em
+    text-shadow: 1px 1px 2px $dark
+  span
+    font:
+      size: 20pt
+      weight: bold
+    letter-spacing: 1pt
+    margin-top: 42px
+    float: right
+
 div#notice
   border:
     color: #390
@@ -36,19 +65,44 @@ div#notice
   color: #390
   padding: 4px 0
   text-align: center
-  width: 600px
+  width: $width
   margin-left: -1px
   cursor: pointer
   position: absolute
   z-index: 1
   display: none
+  opacity: 0.75
+
+div#nav
+  float: left
+  width: $nav-width
+  ul
+    list-style: none
+    margin-left: 0
+    padding-left: 0
+    li
+      margin-bottom: 16px
+      a
+        border-bottom: 2px solid $light
+        color: #005e9f
+        font-weight: bold
+        line-height: 1.2em
+        display: block
+        text-decoration: none
+        &:after
+          visibility: hidden
+          content: '\25b8'
+          margin-left: 0.5em
+        &:hover:after
+          visibility: visible
 
 div#content
+  margin-left: $nav-width
   div
     position: relative
     padding: 16px
     &:hover
-      background-color: lighten($background, 10%)
+      background-color: $light
     a.edit
       position: absolute
       top: 0

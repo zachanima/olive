@@ -7,9 +7,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    
+    <div id="header">
+      <div>
+        <span>Danmark - Indien</span>
+        <strong>Go for Goa</strong>
+      </div>
+    </div>
+
     <%= content_tag :div, notice, id: 'notice' if notice %>
+
+    <div id="nav">
+      <ul>
+        <% @pages.each do |page| %>
+          <li><%= link_to page.title, page %></li>
+        <% end %>
+      </ul>
+    </div>
+
+
     <div id="content">
       <%= yield %>
     </div>
+
   </body>
 </html>
