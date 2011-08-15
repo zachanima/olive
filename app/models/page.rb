@@ -11,12 +11,12 @@ class Page < ActiveRecord::Base
   before_validation :set_initial_position
 
   def to_param
-    [self.id, self.title.parameterize] * '-'
+    "#{self.id}-#{self.title.parameterize}"
   end
 
   private
   def set_initial_position
-    if self.new_record? and self.position == nil
+    if self.position == nil
       if Page.count == 0
         self.position = 1
       else

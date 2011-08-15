@@ -3,6 +3,5 @@ class Section < ActiveRecord::Base
 
   belongs_to :page
 
-  validates_presence_of :page
-  validates_presence_of :text
+  validates_presence_of :page, :text
 end
