@@ -1,11 +1,11 @@
 <div id="notice"><%= notice %></div>
 
-<h1><%= @page.title %></h1>
-
 <div>
+  <%= link_to 'Edit', edit_page_path(@page) %>
+  <h1><%= @page.title %></h1>
   <%= @page.text %>
 </div>
 
+<%= render @page.sections %>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<%= link_to 'New section', new_page_section_path(@page) %>

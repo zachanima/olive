@@ -1,0 +1,5 @@
+<div>
+  <%= link_to 'Edit', edit_page_section_path(@page, section) %>
+  <%= content_tag :h2, section.title if section.title %>
+  <%= section.text %>
+</div>
