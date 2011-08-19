@@ -119,9 +119,6 @@ div#content
     repeat: repeat-x
   border-radius: $radius
 
-  div:first-child
-    border-radius: $radius $radius 0 0
-
   div
     padding: 16px
     position: relative
@@ -129,6 +126,12 @@ div#content
 
     &:hover
       background-color: $light
+
+    &:first-child
+      border-radius: $radius $radius 0 0
+
+    &:last-child
+      border-radius: 0 0 $radius $radius
 
     a.edit
       color: $color
