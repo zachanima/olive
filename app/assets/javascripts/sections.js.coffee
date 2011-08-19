@@ -7,7 +7,6 @@ jQuery ->
 
   $('div[data-section] a.edit').click ->
     section = $(this).parent()
-
     $.ajax
       url: '/pages/' + page.attr('data-page') + '/sections/' + section.attr('data-section') + '/edit'
       success: (data) -> section.html(data)

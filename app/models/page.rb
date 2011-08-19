@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   has_many :sections, dependent: :destroy
 
   validates_presence_of :title
-  validates :position, presence: true, uniqueness: true, numericality: { greater_than: 0 }
+  validates :position, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   default_scope order: :position
 
@@ -18,7 +18,7 @@ class Page < ActiveRecord::Base
   def set_initial_position
     if self.position == nil
       if Page.count == 0
-        self.position = 1
+        self.position = 0
       else
         self.position = Page.last.position + 1
       end

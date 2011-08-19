@@ -16,10 +16,12 @@
     </div>
 
     <div id="nav">
-      <ol>
+      <ol id="pages">
         <% @pages.each do |page| %>
-          <li><%= link_to page.title, page %></li>
+          <%= content_tag :li, link_to(page.title, page), id: dom_id(page) %>
         <% end %>
+      </ol>
+      <ol>
         <li><%= link_to 'New page', new_page_path %></li>
       </ol>
     </div>

@@ -43,4 +43,12 @@ class PagesController < ApplicationController
       redirect_to Page.first
     end
   end
+
+  def sort
+    Page.all.each do |page|
+      page.position = params['page'].index(page.id.to_s)
+      page.save
+    end
+    render nothing: true
+  end
 end
