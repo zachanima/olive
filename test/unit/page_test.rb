@@ -16,9 +16,9 @@ class PageTest < ActiveSupport::TestCase
     assert page.save
   end
 
-  test "should set position to 1" do
+  test "should set position to 0" do
     page = Factory(:page)
-    assert_equal page.position, 1
+    assert_equal page.position, 0
   end
 
   test "should increment position by 1" do
@@ -35,8 +35,8 @@ class PageTest < ActiveSupport::TestCase
   end
 
   test "should order by position" do
-    Factory(:page, position: 2)
     Factory(:page, position: 1)
+    Factory(:page, position: 0)
     assert_equal Page.scoped, Page.order(:position)
   end
 end
