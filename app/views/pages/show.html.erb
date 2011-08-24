@@ -4,7 +4,9 @@
   <%= @page.text %>
 </div>
 
-<%= render @page.sections %>
+<div id="sections">
+  <%= render @page.sections %>
+</div>
 
 <div id="new_section">
   <%= link_to 'New section', new_page_section_path(@page), class: 'edit' %>

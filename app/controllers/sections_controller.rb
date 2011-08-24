@@ -36,6 +36,14 @@ class SectionsController < ApplicationController
     redirect_to @page
   end
 
+  def sort
+    @page.sections.each do |section|
+      section.position = params['section'].index(section.id.to_s)
+      section.save
+    end
+    render nothing: true
+  end
+
   private
   def find_section
     @section = @page.sections.find(params[:id])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804060936) do
+ActiveRecord::Schema.define(:version => 20110824085221) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110804060936) do
     t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "sections", ["page_id"], :name => "index_sections_on_page_id"
