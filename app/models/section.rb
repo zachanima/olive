@@ -13,9 +13,9 @@ class Section < ActiveRecord::Base
   private
   def set_initial_position
     if self.position == nil
-      if self.page.sections.count == 0
+      if self.page and self.page.sections.count == 0
         self.position = 0
-      else
+      elsif self.page
         self.position = self.page.sections.last.position + 1
       end
     end
