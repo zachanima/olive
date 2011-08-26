@@ -1,4 +1,5 @@
 jQuery ->
+  /* TODO: remove noclick class */
   $('div[data-section] a.edit').click ->
     unless $(this).hasClass('noclick')
       section = $(this).parent()
@@ -8,12 +9,12 @@ jQuery ->
     false
 
   $('div#new_section a.edit').click ->
-    unless $(this).hasClass('noclick')
-      $.ajax
-        url: '/pages/' + page.attr('data-page') + '/sections/new',
-        success: (data) -> $('#new_section').html(data)
+    $.ajax
+      url: '/pages/' + page.attr('data-page') + '/sections/new',
+      success: (data) -> $('#new_section').html(data)
     false
 
+  /* TODO: remove noclick class */
   $('div#sections').sortable
     scroll: true,
     axis: 'y',

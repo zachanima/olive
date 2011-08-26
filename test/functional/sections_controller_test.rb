@@ -98,4 +98,6 @@ class SectionsControllerTest < ActionController::TestCase
     end
     assert_response :unauthorized
   end
+
+  # TODO: Write should sort, should not sort when unauthorized, more.
 end

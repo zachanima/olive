@@ -113,4 +113,6 @@ class PagesControllerTest < ActionController::TestCase
     get :home
     assert_response :not_found
   end
+
+  # TODO: Write should sort, should not sort when unauthorized, more.
 end
