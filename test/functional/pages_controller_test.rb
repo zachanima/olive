@@ -93,7 +93,7 @@ class PagesControllerTest < ActionController::TestCase
     assert_difference('Page.count', -1) do
       delete :destroy, id: @page.to_param
     end
-    assert_redirected_to pages_path
+    assert_redirected_to root_path
   end
 
   test "should not destroy when unauthorized" do

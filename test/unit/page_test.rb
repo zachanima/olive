@@ -6,11 +6,6 @@ class PageTest < ActiveSupport::TestCase
     assert !page.save
   end
 
-  test "should not save with empty title" do
-    page = Factory.build(:page, title: '')
-    assert !page.save
-  end
-
   test "should save" do
     page = Factory.build(:page)
     assert page.save
