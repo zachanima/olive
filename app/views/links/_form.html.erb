@@ -1,0 +1,16 @@
+<%= form_for(@link) do |f| %>
+  <ol class="fields">
+    <li>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: 'Title'  %>
+    </li>
+    <li>
+      <%= f.label :location %>
+      <%= f.text_field :location, placeholder: 'Location' %>
+    </li>
+  </ol>
+
+  <ol class="actions">
+    <li><%= f.submit %></li>
+  </ol>
+<% end %>

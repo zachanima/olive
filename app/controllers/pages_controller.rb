@@ -33,9 +33,10 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
 
-    redirect_to pages_url
+    redirect_to root_path
   end
 
+  # TODO: Render, don't redirect.
   def home
     if Page.count == 0
       render text: 'Not Found', status: :not_found

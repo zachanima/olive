@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :find_pages
+  before_filter :find_links
 
   private
   def find_page
@@ -9,5 +10,9 @@ class ApplicationController < ActionController::Base
 
   def find_pages
     @pages = Page.all
+  end
+
+  def find_links
+    @links = Link.all
   end
 end

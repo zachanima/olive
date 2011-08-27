@@ -2,7 +2,9 @@ $color: #005e9f
 $light: rgba(255, 255, 255, 0.5)
 $dark: rgba(0, 0, 0, 0.5)
 $shadow: 1px 1px 2px $dark
-$font: 11pt arial, sans-serif
+$font-size: 11pt
+$font-family: arial, sans-serif
+$font: $font-size $font-family
 $radius: 8px
 
 $width: 720px
@@ -97,22 +99,36 @@ div#nav
     padding-left: 0
 
     li
+      color: $color
+      font-weight: bold
+      line-height: 1.2em
+
       margin-bottom: 16px
 
       a
-        color: $color
-        font-weight: bold
-        line-height: 1.2em
+        color: inherit
         text-decoration: none
 
-        border-bottom: 2px solid $light
-
-        display: block
-
-        &:hover:after
+        &:after
           content: '\25b8'
 
           margin-left: 0.5em
+          visibility: hidden
+
+        &:hover:after
+          visibility: visible
+
+      a, span
+        border-bottom: 2px solid $light
+        display: block
+
+      li
+        font-weight: normal
+
+        margin-bottom: 2px
+
+        a
+          border-width: 0
 
 
 div#content
@@ -172,15 +188,19 @@ div#content
         label
           display: none
 
-        input[name$='[title]']
+        input[type=text]
           color: #333
-          font-weight: bold
-          text-shadow: $shadow
+          font-size: 11pt
 
           border: 1px solid #ccc
 
+          margin-bottom: 4px
           padding: 0
           width: 100%
+
+        input[name$='[title]']
+          font-weight: bold
+          text-shadow: $shadow
 
         input#page_title
           font-size: 24pt
@@ -195,7 +215,7 @@ div#content
 
           border: 1px solid #ccc
 
-          margin-top: 4px
+          margin-bottom: 4px
           padding: 0
           width: 100%
           height: 8em

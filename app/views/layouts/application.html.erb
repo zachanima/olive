@@ -24,6 +24,19 @@
       <ol>
         <li><%= link_to 'New page', new_page_path %></li>
       </ol>
+      <ol>
+        <li>
+          <span>Links</span>
+          <ol id="links">
+            <% @links.each do |link| %>
+              <%= content_tag :li, link_to(link.title, edit_link_path(link)), id: dom_id(link), data: { link: link.to_param } %>
+            <% end %>
+          </ol>
+          <ol>
+            <li><%= link_to 'New link', new_link_path %></li>
+          </ol>
+        </li>
+      </ol>
     </div>
 
 
