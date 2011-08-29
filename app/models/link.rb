@@ -7,15 +7,4 @@ class Link < ActiveRecord::Base
   default_scope order: :position
 
   before_validation :set_initial_position
-
-  private
-  def set_initial_position
-    if self.position == nil
-      if Link.count == 0
-        self.position = 0
-      else
-        self.position = Link.last.position + 1
-      end
-    end
-  end
 end

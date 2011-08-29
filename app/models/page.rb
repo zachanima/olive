@@ -13,15 +13,4 @@ class Page < ActiveRecord::Base
   def to_param
     "#{self.id}-#{self.title.parameterize if self.title}"
   end
-
-  private
-  def set_initial_position
-    if self.position == nil
-      if Page.count == 0
-        self.position = 0
-      else
-        self.position = Page.last.position + 1
-      end
-    end
-  end
 end

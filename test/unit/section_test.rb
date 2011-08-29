@@ -18,8 +18,33 @@ class SectionTest < ActiveSupport::TestCase
     assert !section.save
   end
 
-  test "should save with page and text" do
+  test "should save" do
     section = Factory.build(:section)
     assert section.save
+  end
+
+  test "should set position to 0" do
+    section = Factory(:section)
+    assert_equal section.position, 0
+  end
+
+  test "should increment position by 1" do
+    page = Factory(:page)
+    3.times { Factory(:section, page_id: page.id) }
+    section = Factory(:section, page_id: page.id)
+    assert_equal section.position, page.sections[-2].position + 1
+  end
+
+  test "should not set position" do
+    section = Factory(:section, text: 'foo')
+    assert_no_difference('section.position') do
+      section.update_attributes(text: 'bar')
+    end
+  end
+
+  test "should order by position" do
+    Factory(:section, position: 1)
+    Factory(:section, position: 0)
+    assert_equal Section.scoped, Section.order(:position)
   end
 end
