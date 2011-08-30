@@ -1,10 +1,13 @@
 jQuery ->
-  $('div#notice').fadeIn()
-  $('div#notice').click -> $(this).fadeOut()
+  $('#notice').click -> $(this).fadeOut('slow')
+  setTimeout ->
+    $('#notice').fadeOut('slow')
+  , 3000
 
   /* TODO: remove noclick class */
   $('a.edit').click ->
     unless $(this).hasClass('noclick')
-      $(this).html('Loading ...')
+      $('#notice').show()
+      $('#notice').html('Loading ...')
 
   window.page = $('div[data-page]')
