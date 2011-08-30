@@ -3,10 +3,14 @@ jQuery ->
     scroll: true,
     axis: 'y',
     update: ->
+      $('#notice').show()
+      $('#notice').html('Saving ...')
       $.ajax
         type: 'post',
         data: $('ol#pages').sortable('serialize'),
         url: '/pages/sort'
+        success: ->
+          $('#notice').fadeOut('slow')
 
   $('div[data-page] a.edit').click ->
     $.ajax

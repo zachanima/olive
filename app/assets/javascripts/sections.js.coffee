@@ -26,7 +26,11 @@ jQuery ->
       ui.item.children('a.edit').addClass('noclick')
       setTimeout -> ui.item.children('a.edit').removeClass('noclick')
     update: ->
+      $('#notice').show()
+      $('#notice').html('Saving ...')
       $.ajax
         type: 'post',
         data: $('div#sections').sortable('serialize'),
         url: '/pages/' + page.attr('data-page') + '/sections/sort'
+        success: ->
+          $('#notice').fadeOut('slow')
