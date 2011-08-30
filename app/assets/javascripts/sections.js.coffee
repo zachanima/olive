@@ -10,7 +10,7 @@ jQuery ->
           $('#notice').fadeOut('slow')
     false
 
-  $('div#new_section a.edit').click ->
+  $('div#new_section a.new').click ->
     $.ajax
       url: '/pages/' + page.attr('data-page') + '/sections/new',
       success: (data) ->

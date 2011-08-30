@@ -3,19 +3,17 @@ jQuery ->
     scroll: true,
     axis: 'y',
     update: ->
-      $('#notice').show()
-      $('#notice').html('Saving ...')
+      $('#notice').html('Saving ...').show()
       $.ajax
         type: 'post',
         data: $('ol#pages').sortable('serialize'),
         url: '/pages/sort'
-        success: -> $('#notice').fadeOut('slow')
+        complete: -> $('#notice').fadeOut('slow')
 
-  /* TODO: Use js (or possibly json) format. */
-  $('div[data-page] a.edit').click ->
+  $('[data-page] a.edit').click ->
     $.ajax
+      dataType: 'script'
       url: '/pages/' + page.attr('data-page') + '/edit'
-      success: (data) ->
-        page.html(data)
-        $('#notice').fadeOut('slow')
+      complete: -> $('#notice').fadeOut('slow')
     false
+

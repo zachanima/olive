@@ -10,8 +10,7 @@ jQuery ->
   /* TODO: remove noclick class. */
   $('a.edit').click ->
     unless $(this).hasClass('noclick')
-      $('#notice').show()
-      $('#notice').html('Loading ...')
+      $('#notice').html('Loading ...').show()
 
   window.page = $('div[data-page]')
 

@@ -8,9 +8,7 @@ class PagesController < ApplicationController
     @page = Page.new
   end
 
-  def edit
-    render layout: nil
-  end
+  # def edit
 
   def create
     @page = Page.new(params[:page])
