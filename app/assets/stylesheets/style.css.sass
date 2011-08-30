@@ -54,6 +54,14 @@ h2
   margin: 0 0 8px 0
 
 
+a.new
+  color: lighten($color, 10%) !important
+  text-align: center
+
+  &:hover
+    color: $color !important
+
+
 div#notice
   color: #660
   font:
@@ -206,7 +214,7 @@ div#content
           top: 0
           right: 0
 
-    a.edit
+    a.edit, a.new
       color: $color
       font-weight: bold
       text-align: center
