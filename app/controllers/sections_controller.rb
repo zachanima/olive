@@ -33,7 +33,7 @@ class SectionsController < ApplicationController
   def destroy
     @section.destroy
 
-    redirect_to @page
+    redirect_to @page, notice: 'Section was successfully destroyed.'
   end
 
   def sort
