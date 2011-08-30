@@ -9,8 +9,7 @@ jQuery ->
         type: 'post',
         data: $('ol#pages').sortable('serialize'),
         url: '/pages/sort'
-        success: ->
-          $('#notice').fadeOut('slow')
+        success: -> $('#notice').fadeOut('slow')
 
   /* TODO: Use js (or possibly json) format. */
   $('div[data-page] a.edit').click ->

@@ -54,7 +54,7 @@ h2
   margin: 0 0 8px 0
 
 
-a.new
+a.new, a.delete
   color: lighten($color, 10%) !important
   text-align: center
 
@@ -207,12 +207,13 @@ div#content
           font:
             size: 8pt
           text-decoration: none
-
           display: none
           padding: 2px 8px 0 8px
           position: absolute
           top: 0
           right: 0
+          &:hover
+            background-color: #fff
 
     a.edit, a.new
       color: $color
