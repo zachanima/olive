@@ -12,6 +12,7 @@ jQuery ->
         success: ->
           $('#notice').fadeOut('slow')
 
+  /* TODO: Use js (or possibly json) format. */
   $('div[data-page] a.edit').click ->
     $.ajax
       url: '/pages/' + page.attr('data-page') + '/edit'
