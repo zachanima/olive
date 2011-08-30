@@ -173,10 +173,14 @@ div#content
       background-color: $light
 
     &:first-child
-      border-radius: $radius $radius 0 0
+      border-top:
+        left-radius: $radius
+        right-radius: $radius
 
     &:last-child
-      border-radius: 0 0 $radius $radius
+      border-bottom:
+        right-radius: $radius
+        left-radius: $radius
 
     &#sections
       padding: 0
