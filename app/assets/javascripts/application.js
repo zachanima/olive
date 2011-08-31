@@ -4,6 +4,12 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+// require_tree .
+//
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery-ui
+//= require application.js.coffee
+//= require pages
+//= require sections
+//= require links

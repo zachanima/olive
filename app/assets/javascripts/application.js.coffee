@@ -1,7 +1,14 @@
+window.notice = (text) ->
+  e = $('#notice')
+  if text
+    e.html(text).show()
+  else
+    e.fadeOut('slow')
+
 jQuery ->
-  $('#notice').click -> $(this).fadeOut('slow')
+  $('#notice').click -> notice()
   setTimeout ->
-    $('#notice').fadeOut('slow')
+    notice()
   , 3000
 
   /* TODO: you know what to do. */
@@ -10,7 +17,6 @@ jQuery ->
   /* TODO: remove noclick class. */
   $('a.edit').click ->
     unless $(this).hasClass('noclick')
-      $('#notice').html('Loading ...').show()
+      notice('Loading ...')
 
   window.page = $('div[data-page]')
-

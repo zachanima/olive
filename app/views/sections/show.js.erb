@@ -1,0 +1,13 @@
+section = $('#<%= dom_id @section %>');
+section.replaceWith('<%=j render(@section) %>');
+$('#<%= dom_id @section %> a.edit').click(function() {
+  if (!$(this).hasClass('noclick')) {
+    notice('Loading ...');
+    $.ajax({
+      dataType: 'script',
+      url: '/pages/' + page.attr('data-page') + '/sections/' + section.attr('data-section') + '/edit',
+      complete: function() { notice() }
+    });
+  }
+  return false;
+});
