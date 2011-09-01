@@ -7,14 +7,14 @@ jQuery ->
       $.ajax
         type: 'post',
         data: $('div#sections').sortable('serialize')
-        url: '/pages/' + page.attr('data-page') + '/sections/sort'
+        url: '/pages/' + page_id + '/sections/sort'
         beforeSend: -> notice('Saving ...')
         complete: -> notice()
 
   $('[data-section]').each ->
     section_id = $(this).attr('data-section')
     bindEdit '#section_' + section_id + ' a.edit',
-      '/pages/' + page.attr('data-page') + '/sections/' + section_id + '/edit'
+      '/pages/' + page_id + '/sections/' + section_id + '/edit'
 
   bindEdit '#new_section a.new',
-    '/pages/' + page.attr('data-page') + '/sections/new'
+    '/pages/' + page_id + '/sections/new'

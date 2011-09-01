@@ -21,7 +21,7 @@ jQuery ->
     $(selector).bind('ajax:beforeSend', -> notice(text))
     $(selector).bind('ajax:complete', -> notice())
 
-  window.page = $('div[data-page]')
+  window.page_id = $('[data-page]').attr('data-page')
 
   $('#notice').click -> notice()
   setTimeout ->
