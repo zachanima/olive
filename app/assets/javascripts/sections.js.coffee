@@ -11,14 +11,10 @@ jQuery ->
         url: '/pages/' + page.attr('data-page') + '/sections/sort'
         complete: -> notice()
 
-  $('[data-section] a.edit').click ->
-    section = $(this).parent()
-    $.ajax
-      dataType: 'script'
-      url: '/pages/' + page.attr('data-page') + '/sections/' + section.attr('data-section') + '/edit'
-      beforeSend: -> notice('Loading ...')
-      complete: -> notice()
-    false
+  $('[data-section]').each ->
+    section_id = $(this).attr('data-section')
+    bindEdit '#section_' + section_id + ' a.edit',
+      '/pages/' + page.attr('data-page') + '/sections/' + section_id + '/edit'
 
   $('div#new_section a.new').click ->
     $.ajax
