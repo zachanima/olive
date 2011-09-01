@@ -35,10 +35,8 @@ jQuery ->
 
   window.page_id = $('[data-page]').attr('data-page')
 
+  /* Hide notice on click. */
   $('#notice').click -> notice()
-  setTimeout ->
-    notice()
-  , 3000
 
   /* TODO: you know what to do. */
   $('#countdown').html(parseInt(((new Date()).setFullYear(2012,0,28) - Date.now()) / 86400000) + ' days left')
