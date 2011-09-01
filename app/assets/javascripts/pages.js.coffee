@@ -10,4 +10,4 @@ jQuery ->
         beforeSend: -> notice('Saving ...')
         complete: -> notice()
 
-  bindEdit('[data-page] a.edit', '/pages/' + page_id + '/edit')
+  bindAJAX('[data-page] a.edit', '/pages/' + page_id + '/edit')

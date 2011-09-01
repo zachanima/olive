@@ -13,8 +13,8 @@ jQuery ->
 
   $('[data-section]').each ->
     section_id = $(this).attr('data-section')
-    bindEdit '#section_' + section_id + ' a.edit',
+    bindAJAX '#section_' + section_id + ' a.edit',
       '/pages/' + page_id + '/sections/' + section_id + '/edit'
 
-  bindEdit '#new_section a.new',
+  bindAJAX '#new_section a.new',
     '/pages/' + page_id + '/sections/new'

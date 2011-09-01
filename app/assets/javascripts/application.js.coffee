@@ -7,7 +7,7 @@ jQuery ->
       $('#notice').fadeOut('slow')
 
   /* Bind conventional ajax to element on click event */
-  window.bindEdit = (selector, url) ->
+  window.bindAJAX = (selector, url) ->
     $(selector).click ->
       $.ajax
         dataType: 'script'

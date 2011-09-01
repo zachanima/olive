@@ -1,2 +1,2 @@
 $('#<%= dom_id @section %>').replaceWith('<%=j render(@section) %>');
-bindEdit('#<%= dom_id @section %> a.edit', '<%= edit_page_section_path(@page, @section) %>');
+bindAJAX('#<%= dom_id @section %> a.edit', '<%= edit_page_section_path(@page, @section) %>');

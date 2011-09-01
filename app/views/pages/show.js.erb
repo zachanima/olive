@@ -1,2 +1,2 @@
 $('[data-page]').html('<%=j render(@page) %>');
-bindEdit('[data-page] a.edit', '<%= edit_page_path(@page) %>');
+bindAJAX('[data-page] a.edit', '<%= edit_page_path(@page) %>');
