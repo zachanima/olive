@@ -1,10 +1,12 @@
 jQuery ->
+  /* Show notice if text is supplied; else fade out. */
   window.notice = (text) ->
     if text
       $('#notice').html(text).show()
     else
       $('#notice').fadeOut('slow')
 
+  /* Bind conventional ajax to element on click event */
   window.bindEdit = (selector, url) ->
     $(selector).click ->
       $.ajax
@@ -14,6 +16,7 @@ jQuery ->
         complete: -> notice()
       false
 
+  /* Bind progress notice to an element's ajax events */
   window.bindNotice = (selector, text) ->
     $(selector).bind('ajax:beforeSend', -> notice(text))
     $(selector).bind('ajax:complete', -> notice())
