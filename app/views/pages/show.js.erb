@@ -1,2 +1,3 @@
 $('[data-page]').html('<%=j render(@page) %>');
 bindAJAX('[data-page] a.edit', '<%= edit_page_path(@page) %>');
+notice('<%= flash[:notice] %>')
