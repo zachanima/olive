@@ -1,5 +1,5 @@
-<%# TODO: Only use remote for edit page, not new page (possibly?) %>
-<%= form_for @page, remote: true do |f| %>
+<%# TODO: Remove the remote logic. %>
+<%= form_for @page, remote: @page.new_record? ? false : true do |f| %>
   <ol class="fields">
     <li>
       <%= f.label :title %>
