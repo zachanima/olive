@@ -1,7 +1,2 @@
 $('[data-page]').html('<%=j render('form') %>')
-
-/* TODO: Move these bindings into application.js.coffee ... somehow. */
-$('form[data-remote]').bind('ajax:beforeSend', function() {
-  $('#notice').show().html('Saving ...');
-});
-  /* .bind('ajax:complete', function() { $('#notice').fadeOut('slow'); }); */
+bindNotice('form[data-remote]', 'Saving ...')

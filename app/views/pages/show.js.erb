@@ -1,10 +1,2 @@
-$('[data-page]').html('<%=j render(@page) %>')
-$('[data-page] a.edit').click(function() {
-  $('#notice').html('Loading ...').show()
-  $.ajax({
-    dataType: 'script',
-    url: '/pages/' + page.attr('data-page') + '/edit',
-    complete: function() { $('#notice').fadeOut('slow') }
-  });
-  return false;
-});
+$('[data-page]').html('<%=j render(@page) %>');
+bindEdit('[data-page] a.edit', '<%= edit_page_path(@page) %>');
