@@ -22,6 +22,7 @@ class SectionsController < ApplicationController
     end
   end
 
+  # TODO: Redirect to page if HTML request.
   def update
     if @section.update_attributes(params[:section])
       redirect_to [@page, @section], notice: 'Section was successfully updated.'

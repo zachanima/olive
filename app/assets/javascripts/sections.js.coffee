@@ -16,11 +16,5 @@ jQuery ->
     bindEdit '#section_' + section_id + ' a.edit',
       '/pages/' + page.attr('data-page') + '/sections/' + section_id + '/edit'
 
-  $('div#new_section a.new').click ->
-    $.ajax
-      url: '/pages/' + page.attr('data-page') + '/sections/new',
-      success: (data) ->
-        $('#new_section').html(data)
-        notice()
-    false
-
+  bindEdit '#new_section a.new',
+    '/pages/' + page.attr('data-page') + '/sections/new'

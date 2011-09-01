@@ -1,4 +1,5 @@
-<%= form_for [@page, @section], remote: true do |f| %>
+<%# TODO: Remove the remote logic. %>
+<%= form_for [@page, @section], remote: @section.new_record? ? false : true do |f| %>
   <ol class="fields">
     <li>
       <%= f.label :title %>

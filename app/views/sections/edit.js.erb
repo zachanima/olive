@@ -1,6 +1,2 @@
-$('#<%= dom_id @section %>').html('<%=j render('form') %>')
-
-/* TODO: Move these bindings into application.js.coffee ... somehow. */
-$('form[data-remote]').bind('ajax:beforeSend', function() {
-  $('#notice').show().html('Saving ...');
-});
+$('#<%= dom_id @section %>').html('<%=j render('form') %>');
+bindNotice('form[data-remote]', 'Saving ...');
