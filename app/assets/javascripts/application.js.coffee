@@ -18,8 +18,9 @@ jQuery ->
   /* Bind sortable ajax to element. */
   window.bindSortable = (selector, url) ->
     $(selector).sortable
-      scroll: true,
-      axis: 'y',
+      scroll: true
+      axis: 'y'
+      helper: 'clone'
       update: ->
         $.ajax url,
           type: 'post'
