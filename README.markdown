@@ -6,3 +6,8 @@
 * Add notices to JS responses.
 * Add image to sections
 * Add contact form.
+
+==== Wishlist ====
+* Event calendar
+* Date countdown
+* Drag-drop files/images locally to upload.
