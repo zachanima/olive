@@ -4,11 +4,11 @@ jQuery ->
     scroll: true,
     axis: 'y',
     update: ->
-      notice('Saving ...')
       $.ajax
         type: 'post',
         data: $('div#sections').sortable('serialize')
         url: '/pages/' + page.attr('data-page') + '/sections/sort'
+        beforeSend: -> notice('Saving ...')
         complete: -> notice()
 
   $('[data-section]').each ->
