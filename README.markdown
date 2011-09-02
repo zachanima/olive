@@ -1,7 +1,7 @@
 ==== To Do ====
 * Use AJAX for new section, new/edit link, possibly new page.
 * Use TinyMCE for page/section text.
-* Get rid of stale 'Saving ...' messages.
+* Get rid of stale 'Saving ...' messages (Partly solved through ajax notices).
 * Use #saving, #loading dividers for relevant notices.
 * Add image to sections
 * Add contact form.
