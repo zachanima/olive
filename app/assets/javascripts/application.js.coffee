@@ -6,10 +6,10 @@ jQuery ->
     else
       $('#notice').fadeOut('slow')
 
-  /* Bind conventional ajax to element on click event. */
-  window.bindAJAX = (selector, url) ->
+  /* Bind conventional ajax to anchor element on click event. */
+  window.bindAJAX = (selector) ->
     $(selector).click ->
-      $.ajax url,
+      $.ajax $(selector).attr('href'),
         dataType: 'script'
         beforeSend: -> notice('Loading ...')
         complete: -> notice()
