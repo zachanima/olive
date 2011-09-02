@@ -1,5 +1,5 @@
 ==== To Do ====
-* Use AJAX for new section, new/edit link, possibly new page.
+* Use AJAX for create/destroy section, new/create/edit/update/destroy link
 * Use TinyMCE for page/section text.
 * Get rid of stale 'Saving ...' messages (Partly solved through ajax notices).
 * Use #saving, #loading dividers for relevant notices.
