@@ -9,7 +9,7 @@ jQuery ->
   /* Bind conventional ajax to anchor element on click event. */
   window.bindAJAX = (selector) ->
     $(selector).click ->
-      $.ajax $(selector).attr('href'),
+      $.ajax $(this).attr('href'),
         dataType: 'script'
         beforeSend: -> notice('Loading ...')
         complete: -> notice()
