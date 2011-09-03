@@ -36,7 +36,10 @@ class SectionsController < ApplicationController
   def destroy
     @section.destroy
 
-    redirect_to @page, notice: 'Section was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to @page, notice: 'Section was successfully destroyed.' }
+      format.js { flash[:notice] = 'Section was successfully destroyed.' }
+    end
   end
 
   def sort

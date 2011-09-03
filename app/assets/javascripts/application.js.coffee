@@ -9,7 +9,10 @@ jQuery ->
   /* Bind conventional ajax to anchor element on click event. */
   window.bindAJAX = (selector) ->
     $(selector).click ->
+      if $(this).attr('data-confirm') and not confirm($(this).attr('data-confirm'))
+        return false
       $.ajax $(this).attr('href'),
+        type: $(this).attr('data-method') || 'get'
         dataType: 'script'
         beforeSend: -> notice('Loading ...')
         complete: -> notice()
