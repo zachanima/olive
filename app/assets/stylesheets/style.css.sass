@@ -54,6 +54,15 @@ h2
   margin: 0 0 8px 0
 
 
+form
+  input[type=text]
+    color: #333
+
+    border: 1px solid #ccc
+
+    width: 100%
+
+
 a.new, a.delete
   color: lighten($color, 10%) !important
   text-align: center
@@ -148,12 +157,28 @@ div#nav
         display: block
 
       li
+        font-size: 10pt
         font-weight: normal
 
         margin-bottom: 2px
 
         a
           border-width: 0
+
+  form
+    ol.fields
+      li
+        margin-bottom: -5px
+        &:last-child
+          margin-bottom: 0
+
+    input
+      font-size: 10pt
+
+      width: 100%
+
+    label
+      display: none
 
   div#countdown
     color: #fff
@@ -242,14 +267,10 @@ div#content
           display: none
 
         input[type=text]
-          color: #333
           font-size: 11pt
-
-          border: 1px solid #ccc
 
           margin-bottom: 4px
           padding: 0
-          width: 100%
 
         input[name$='[title]']
           font-weight: bold
