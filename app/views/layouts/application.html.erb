@@ -33,7 +33,7 @@
           <span>Links</span>
           <ol id="links">
             <% @links.each do |link| %>
-              <%= content_tag :li, link_to(link.title, edit_link_path(link)), id: dom_id(link), data: { link: link.to_param } %>
+              <%= content_tag :li, link_to(link.title, edit_link_path(link), class: 'edit'), id: dom_id(link) %>
             <% end %>
           </ol>
           <ol>
