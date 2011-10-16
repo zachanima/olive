@@ -6,8 +6,10 @@
 * Use #saving, #loading dividers for relevant notices.
 * Add image to sections
 * Add contact form.
+* Fix 404 when no pages exist.
 
 ==== Wishlist ====
 * Event calendar
 * Date countdown
 * Drag-drop files/images locally to upload.
+* Visible flag for pages.
