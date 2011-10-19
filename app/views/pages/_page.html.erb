@@ -1,5 +1,6 @@
 <div data-page="<%= @page.to_param %>">
   <%= link_to '', edit_page_path(page), class: 'edit' %>
   <h1><%= page.title %></h1>
+  <%= image_tag page.image.url if page.image? %>
   <%= page.text %>
 </div>

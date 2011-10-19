@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :title, :text
+  attr_accessible :title, :text, :image
 
   has_many :sections, dependent: :destroy
 
@@ -9,6 +9,8 @@ class Page < ActiveRecord::Base
   default_scope order: :position
 
   before_validation :set_initial_position
+
+  has_attached_file :image
 
   def to_param
     "#{self.id}-#{self.title.parameterize if self.title}"

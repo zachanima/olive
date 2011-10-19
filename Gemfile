@@ -18,6 +18,7 @@ end
 
 gem 'jquery-rails'
 gem 'therubyracer' 
+gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'

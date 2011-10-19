@@ -11,5 +11,6 @@
 ==== Wishlist ====
 * Event calendar
 * Date countdown
+  * Editable text, date
 * Drag-drop files/images locally to upload.
 * Visible flag for pages.
