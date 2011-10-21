@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
 
   before_validation :set_initial_position
 
-  has_attached_file :image
+  has_attached_file :image, styles: { thumb: '100x100#', small: '240x240>' }
 
   def to_param
     "#{self.id}-#{self.title.parameterize if self.title}"

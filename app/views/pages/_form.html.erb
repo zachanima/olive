@@ -10,7 +10,7 @@
       <%= f.text_area :text, placeholder: 'Text' %>
     </li>
     <li>
-      <%= image_tag @page.image.url if @page.image? %>
+      <%= image_tag @page.image.url(:small) if @page.image? %>
       <%= f.label :image %>
       <%= f.file_field :image %>
     </li>
