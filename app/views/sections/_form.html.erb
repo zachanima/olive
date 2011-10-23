@@ -9,6 +9,11 @@
       <%= f.label :text %>
       <%= f.text_area :text, placeholder: 'Text' %>
     </li>
+    <li>
+      <%= image_tag @section.section_image.url(:thumb) if @section.section_image? %>
+      <%= f.label :section_image %>
+      <%= f.file_field :section_image, class: @section.section_image? ? :hidden : nil  %>
+    </li>
   </ol>
 
   <ol class="actions">

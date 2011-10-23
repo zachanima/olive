@@ -1,2 +1,5 @@
 $('#<%= dom_id @section %>').html('<%=j render('form') %>');
 bindNotice('form[data-remote]', 'Saving ...');
+$('form img').click(function() {
+  $(this).siblings('input[type=file]').click();
+});

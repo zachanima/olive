@@ -4,7 +4,6 @@
 * Get rid of stale 'Saving ...' messages (Partly solved through ajax notices).
 * Fix notice disappearing instantly on destroy.
 * Use #saving, #loading dividers for relevant notices.
-* Add image to sections
 * Add contact form.
 * Fix 404 when no pages exist.
 

@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
-  attr_accessible :title, :text
+  attr_accessible :title, :text, :section_image
 
   belongs_to :page
 
@@ -9,4 +9,6 @@ class Section < ActiveRecord::Base
   default_scope order: :position
 
   before_validation :set_initial_position
+
+  has_attached_file :section_image, styles: { thumb: '100x100#', small: '240x240>' }
 end

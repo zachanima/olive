@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016171751) do
+ActiveRecord::Schema.define(:version => 20111023110604) do
 
   create_table "links", :force => true do |t|
     t.string   "title"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(:version => 20111016171751) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.string   "section_image_file_name"
+    t.string   "section_image_content_type"
+    t.integer  "section_image_file_size"
+    t.datetime "section_image_updated_at"
   end
 
   add_index "sections", ["page_id"], :name => "index_sections_on_page_id"
