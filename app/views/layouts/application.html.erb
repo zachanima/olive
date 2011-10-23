@@ -25,9 +25,11 @@
           <%= content_tag :li, link_to(page.title, page), id: dom_id(page) %>
         <% end %>
       </ol>
-      <ol>
-        <li><%= link_to '+ Page', new_page_path, class: 'new' %></li>
-      </ol>
+      <% if controller.action_name == 'manage' %>
+        <ol>
+          <li><%= link_to '+ Page', new_page_path, class: 'new' %></li>
+        </ol>
+      <% end %>
       <ol>
         <li>
           <span>Links</span>
@@ -36,9 +38,11 @@
               <%= content_tag :li, link_to(link.title, edit_link_path(link), class: 'edit'), id: dom_id(link) %>
             <% end %>
           </ol>
-          <ol>
-            <li><%= link_to '+ Link', new_link_path, class: 'new' %></li>
-          </ol>
+          <% if controller.action_name == 'manage' %>
+            <ol>
+              <li><%= link_to '+ Link', new_link_path, class: 'new' %></li>
+            </ol>
+          <% end %>
         </li>
       </ol>
       <div id="countdown">
@@ -48,6 +52,14 @@
 
     <div id="content">
       <%= yield %>
+    </div>
+
+    <div id="footer">
+      <% if controller.action_name == 'manage' %>
+        <%= link_to 'Log out', @page %>
+      <% else %>
+        <%= link_to 'Manage', manage_page_path(@page) %>
+      <% end %>
     </div>
 
   </body>
