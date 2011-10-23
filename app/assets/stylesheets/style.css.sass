@@ -206,8 +206,11 @@ div#content
     position: relative
     min-height: 4px
 
-    &.manage:hover
+    &:hover
       background-color: $light
+
+    &.show
+      background-color: inherit !important
 
     &:first-child
       border-top:
@@ -223,6 +226,8 @@ div#content
       padding: 0
       &:hover
         background-color: inherit
+      &.show
+        background-color: inherit !important
       div
         &:first-child
           border-radius: 0
