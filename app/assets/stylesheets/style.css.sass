@@ -63,6 +63,10 @@ form
     width: 100%
 
 
+.hidden
+  visibility: hidden
+
+
 a.new, a.delete
   color: lighten($color, 10%) !important
   text-align: center
@@ -298,8 +302,11 @@ div#content
           height: 8em
 
         img
-          float: left
-          margin-right: 8px
+          float: none
+          margin: 0 8px -36px 0
+          cursor: pointer
+          &:hover
+            opacity: 0.75
 
     ol.actions
       text-align: right
