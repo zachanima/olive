@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023110604) do
+ActiveRecord::Schema.define(:version => 20111023114929) do
 
   create_table "links", :force => true do |t|
     t.string   "title"
@@ -47,5 +47,15 @@ ActiveRecord::Schema.define(:version => 20111023110604) do
   end
 
   add_index "sections", ["page_id"], :name => "index_sections_on_page_id"
+
+  create_table "sites", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "domain"
+    t.date     "departs_on"
+    t.string   "depart_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

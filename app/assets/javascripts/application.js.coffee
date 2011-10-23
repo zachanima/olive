@@ -43,4 +43,4 @@ jQuery ->
   $('#notice').click -> notice()
 
   /* TODO: you know what to do. */
-  $('#countdown').html(parseInt(((new Date()).setFullYear(2012,0,28) - Date.now()) / 86400000) + ' days left')
+  $('#countdown span').html(parseInt(((new Date()).setFullYear(2012,0,28) - Date.now()) / 86400000))
