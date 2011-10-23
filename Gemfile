@@ -20,7 +20,6 @@ end
 gem 'jquery-rails'
 gem 'therubyracer' 
 gem 'paperclip'
-gem 'tiny_mce'
 gem 'tinymce-rails'
 
 # Use unicorn as the web server
