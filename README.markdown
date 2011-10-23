@@ -5,6 +5,7 @@
 * Fix notice disappearing instantly on destroy.
 * Use #saving, #loading dividers for relevant notices.
 * Fix 404 when no pages exist.
+* Add delete page link
 
 ==== Wishlist ====
 * Event calendar
