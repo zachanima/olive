@@ -1,10 +1,10 @@
 ==== To Do ====
-* Use AJAX for create section, new/create/edit/update/destroy link
 * Use TinyMCE for page/section text.
+* Add contact form.
+* Use AJAX for create section, new/create/edit/update/destroy link
 * Get rid of stale 'Saving ...' messages (Partly solved through ajax notices).
 * Fix notice disappearing instantly on destroy.
 * Use #saving, #loading dividers for relevant notices.
-* Add contact form.
 * Fix 404 when no pages exist.
 
 ==== Wishlist ====
