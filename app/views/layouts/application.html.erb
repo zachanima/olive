@@ -46,7 +46,9 @@
         </li>
       </ol>
       <div id="countdown">
-        <span>0</span> <%= @site.depart_text %>
+        <% if @site.departs_on %>
+          <%= (@site.departs_on - Date.today).to_i %> <%= @site.depart_text %>
+        <% end %>
       </div>
     </div>
 
