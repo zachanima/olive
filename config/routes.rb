@@ -4,6 +4,7 @@ Olive::Application.routes.draw do
   end
 
   resources :pages do
+    get :manage, on: :member
     post :sort, on: :collection
     resources :sections do
       post :sort, on: :collection

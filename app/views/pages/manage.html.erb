@@ -4,4 +4,8 @@
   <%= render @page.sections %>
 </div>
 
+<div id="new_section">
+  <%= link_to '+ Section', new_page_section_path(@page), class: 'new' %>
+</div>
+
 <%# TODO: Add dynamic 'page updated at' information. %>

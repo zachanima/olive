@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
-  before_filter :find_page, only: [:show, :edit, :update, :destroy]
+  before_filter :find_page, only: [:show, :manage, :edit, :update, :destroy]
   http_basic_authenticate_with name: 'foo', password: 'bar', except: [:show, :home]
 
   # def show
+
+  def manage
+  end
 
   def new
     @page = Page.new
@@ -14,7 +17,7 @@ class PagesController < ApplicationController
     @page = Page.new(params[:page])
 
     if @page.save
-      redirect_to @page, notice: 'Page was successfully created.'
+      redirect_to manage_page_path(@page), notice: 'Page was successfully created.'
     else
       render action: :new
     end
@@ -22,7 +25,7 @@ class PagesController < ApplicationController
 
   def update
     if @page.update_attributes(params[:page])
-      redirect_to @page, notice: 'Page was successfully updated.'
+      redirect_to manage_page_path(@page), notice: 'Page was successfully updated.'
     else
       render action: :edit
     end
