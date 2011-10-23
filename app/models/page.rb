@@ -1,6 +1,8 @@
 class Page < ActiveRecord::Base
-  attr_accessible :title, :text, :image
+  attr_accessible :title, :text, :image, :page_id
 
+  belongs_to :page
+  has_many :pages
   has_many :sections, dependent: :destroy
 
   validates_presence_of :title

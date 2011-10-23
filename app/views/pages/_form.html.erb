@@ -2,6 +2,10 @@
 <%= form_for @page, remote: @page.new_record? ? false : true do |f| %>
   <ol class="fields">
     <li>
+      <%= f.label :page_id %>
+      <%= f.collection_select :page_id, Page.where(page_id: nil).where("id != #{@page.id}").order(:position), :id, :title, :include_blank => true %>
+    </li>
+    <li>
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: 'Title'  %>
     </li>

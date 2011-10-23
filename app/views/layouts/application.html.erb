@@ -21,8 +21,18 @@
 
     <div id="nav">
       <ol id="pages">
-        <% @pages.each do |page| %>
-          <%= content_tag :li, link_to(page.title, page), id: dom_id(page) %>
+        <% Page.where(page_id: nil).each do |page| %>
+          <%= content_tag :li, id: dom_id(page) do %>
+            <%= link_to(page.title, page) %>
+            <% if page.pages.count > 0 %>
+              <ol>
+                <% page.pages.each do |subpage| %>
+                  <%= content_tag :li, link_to(subpage.title, subpage), id: dom_id(subpage) %>
+                <% end %>
+              </ol>
+            <% end %>
+          <% end %>
+              
         <% end %>
       </ol>
       <% if controller.action_name == 'manage' %>
