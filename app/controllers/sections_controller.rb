@@ -16,7 +16,7 @@ class SectionsController < ApplicationController
     @section = @page.sections.build(params[:section])
 
     if @section.save
-      redirect_to @page, notice: 'Section was successfully created.'
+      redirect_to manage_page_path(@page), notice: 'Section was successfully created.'
     else
       render action: :new
     end
