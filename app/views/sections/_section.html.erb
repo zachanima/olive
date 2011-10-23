@@ -1,7 +1,7 @@
 <div id="<%= dom_id section %>" data-section="<%= section.to_param %>">
-  <%= link_to '', edit_page_section_path(@page, section), class: 'edit' if controller.action_name == 'manage' %>
-  <%= link_to "\u2716", page_section_path(@page, section), method: 'delete', class: 'delete', confirm: 'Delete section?' if controller.action_name == 'manage' %>
+  <%= link_to '', edit_page_section_path(@page, section), class: 'edit' if controller.action_name == 'manage' or controller.controller_name == 'sections' %>
+  <%= link_to "\u2716", page_section_path(@page, section), method: 'delete', class: 'delete', confirm: 'Delete section?' if controller.action_name == 'manage' or controller.controller_name == 'sections' %>
   <%= content_tag :h2, section.title unless section.title.blank? %>
   <%= image_tag section.section_image.url(:small) if section.section_image? %>
-  <%= section.text %>
+  <%== section.text %>
 </div>

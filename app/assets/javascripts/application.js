@@ -9,6 +9,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require tinymce-jquery
 //= require application.js.coffee
 //= require pages
 //= require sections
