@@ -25,7 +25,7 @@ class SectionsController < ApplicationController
   def update
     if @section.update_attributes(params[:section])
       respond_to do |format|
-        format.html { redirect_to @page }
+        format.html { redirect_to manage_pages_path(@page) }
         format.js { redirect_to [@page, @section], notice: 'Section was successfully updated.' }
       end
     else
