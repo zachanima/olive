@@ -6,7 +6,7 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body<%== ' class="manage"' if controller.action_name == 'manage' or controller.controller_name == 'links' %>>
     
     <div id="notice">
       <%= flash[:notice] %>

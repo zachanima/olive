@@ -1,3 +1,3 @@
 jQuery ->
   bindAJAX '[data-page] a.edit'
-  bindSortable '#pages', '/pages/sort'
+  bindSortable 'body.manage #pages', '/pages/sort'

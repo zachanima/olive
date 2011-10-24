@@ -1,3 +1,3 @@
 jQuery ->
   bindAJAX '#links a.edit'
-  bindSortable '#links', '/links/sort'
+  bindSortable 'body.manage #links', '/links/sort'
