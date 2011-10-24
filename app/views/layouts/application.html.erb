@@ -67,7 +67,7 @@
     </div>
 
     <div id="footer">
-      <% if controller.action_name == 'manage' %>
+      <% if controller.action_name == 'manage' or controller.controller_name == 'links' %>
         <%= link_to 'Log out', @page %>
       <% else %>
         <%= link_to 'Manage', manage_page_path(@page) %>
