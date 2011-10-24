@@ -13,3 +13,4 @@
   * Editable text, date
 * Drag-drop files/images locally to upload.
 * Visible flag for pages.
+* Facebook button
