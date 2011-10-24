@@ -43,7 +43,7 @@
               
         <% end %>
       </ol>
-      <% if controller.action_name == 'manage' %>
+      <% if controller.action_name == 'manage' or controller.controller_name == 'links' %>
         <ol>
           <li><%= link_to '+ Page', new_page_path, class: 'new' %></li>
         </ol>
@@ -53,7 +53,11 @@
           <span>Links</span>
           <ol id="links">
             <% @links.each do |link| %>
-              <%= content_tag :li, link_to(link.title, edit_link_path(link), class: 'edit'), id: dom_id(link) %>
+              <% if controller.action_name == 'manage' or controller.controller_name == 'links' %>
+                <%= content_tag :li, link_to(link.title, edit_link_path(link), class: 'edit'), id: dom_id(link) %>
+              <% else %>
+                <%= content_tag :li, link_to(link.title, link.location), id: dom_id(link) %>
+              <% end %>
             <% end %>
           </ol>
           <% if controller.action_name == 'manage' %>
