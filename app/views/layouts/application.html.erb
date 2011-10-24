@@ -23,11 +23,19 @@
       <ol id="pages">
         <% Page.where(page_id: nil).each do |page| %>
           <%= content_tag :li, id: dom_id(page) do %>
-            <%= link_to(page.title, page) %>
+            <% if controller.action_name == 'manage' or controller.controller_name == 'links' %>
+              <%= link_to(page.title, manage_page_path(page)) %>
+            <% else %>
+              <%= link_to(page.title, page) %>
+            <% end %>
             <% if page.pages.count > 0 %>
               <ol>
                 <% page.pages.each do |subpage| %>
-                  <%= content_tag :li, link_to(subpage.title, subpage), id: dom_id(subpage) %>
+                  <% if controller.action_name == 'manage' or controller.controller_name == 'links' %>
+                    <%= content_tag :li, link_to(subpage.title, manage_page_path(subpage)), id: dom_id(subpage) %>
+                  <% else %>
+                    <%= content_tag :li, link_to(subpage.title, subpage), id: dom_id(subpage) %>
+                  <% end %>
                 <% end %>
               </ol>
             <% end %>
