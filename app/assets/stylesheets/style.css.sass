@@ -199,18 +199,13 @@ div#content
   background:
     image: url('bg-content.png')
     repeat: repeat-x
+    color: #9abeff
   border-radius: $radius
 
   div
     padding: 16px
     position: relative
     min-height: 4px
-
-    &:hover
-      background-color: $light
-
-    &.show
-      background-color: inherit !important
 
     &:first-child
       border-top:
@@ -224,10 +219,8 @@ div#content
 
     &#sections
       padding: 0
-      &:hover
-        background-color: inherit
       &.show
-        background-color: inherit !important
+        background: none !important
       div
         &:first-child
           border-radius: 0
